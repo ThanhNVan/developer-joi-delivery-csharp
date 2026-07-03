@@ -61,4 +61,6 @@ nunit-*.xml
 
 # macOS
 .DS_Store
+/.vs/JoiDelivery
+/.vs
 /.vs/JoiDelivery/FileContentIndex
