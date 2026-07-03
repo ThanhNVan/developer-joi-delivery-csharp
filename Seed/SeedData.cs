@@ -4,7 +4,7 @@ namespace JoiDelivery.Seed;
 
 public static class SeedData
 {
-    private static readonly Random random = new Random();
+    private static readonly Random Random = new();
 
     public static Dictionary<string, Cart> CartForUsers { get; } = new()
     {
@@ -20,10 +20,13 @@ public static class SeedData
     [
         CreateGroceryProduct("Wheat Bread", "product101", Store101),
         CreateGroceryProduct("Spinach", "product102", Store101),
-        CreateGroceryProduct("Crackers", "product103", Store101)
+        CreateGroceryProduct("Crackers", "product103", Store101),
+        CreateGroceryProduct("Wheat Bread", "product104", Store102),
+        CreateGroceryProduct("Spinach", "product105", Store102),
+        CreateGroceryProduct("Crackers", "product105", Store102)
     ];
 
-    public static List<User> Users { get; } = [User101];
+    public static List<User> Users { get; } = [User101, User102];
 
     private static Cart CreateCartForUser(String userId, String firstName, String lastName, string cartId)
     {
@@ -58,7 +61,7 @@ public static class SeedData
 
     private static int GetRandomNumber(int min, int max)
     {
-        return random.Next(min, max);
+        return Random.Next(min, max);
     }
 
     private static GroceryProduct CreateGroceryProduct(string productName, string productId, GroceryStore store)

@@ -1,3 +1,4 @@
+using JoiDelivery.Interfaces;
 using JoiDelivery.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,9 +7,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<UserService>();
-builder.Services.AddSingleton<CartService>();
-builder.Services.AddSingleton<ProductService>();
+builder.Services.AddSingleton<IProductService, ProductService>();
+builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<ICartService, CartService>();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())

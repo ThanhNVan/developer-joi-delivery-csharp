@@ -1,9 +1,10 @@
+using JoiDelivery.Interfaces;
 using JoiDelivery.Models;
 using JoiDelivery.Seed;
 
 namespace JoiDelivery.Services;
 
-public class UserService
+public class UserService : IUserService
 {
     private readonly List<User> _users = SeedData.Users;
 
